@@ -4,8 +4,6 @@ use dioxus::prelude::*;
 use serde::Deserialize;
 use tailwind_fuse::tw_merge;
 
-const _TAILWIND_URL: &str = manganis::mg!(file("assets/tailwind.css"));
-
 fn main() {
     dioxus::launch(App);
 }
@@ -37,6 +35,7 @@ fn App() -> Element {
     let item = "flex py-3 flex-col gap-1";
 
     rsx! {
+        document::Link { rel: "stylesheet", href: asset!("/assets/tailwind.css") }
         main { class: "mx-auto max-w-[850px] px-6 pb-20",
             div { class: "pt-6 min-[950px]:pt-16",
                 input {
@@ -52,7 +51,7 @@ fn App() -> Element {
                         "outline-none transition-colors duration-300",
                         "placeholder:text-overlay0 hover:border-surface1",
                         "focus:text-text focus:border-surface2"
-                    )
+                    ),
                 }
                 div { class: "mt-6",
                     if let Some(Ok(data)) = ipinfo.read().as_ref() {
