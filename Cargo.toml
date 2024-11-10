@@ -9,7 +9,6 @@ edition = "2021"
 [dependencies]
 dioxus = { version = "0.6.0-alpha.4", features = ["router", "web"] }
 dioxus-logger = "0.5.1"
-manganis = "0.2.2"
 reqwest = { version = "0.12.8", features = ["json"] }
 serde = "1.0.213"
-tailwind_fuse = "0.3.1"
+sir = { git = "https://gitlab.com/mariesavch/sir", version = "0.5.0", features = ["dioxus"] }
